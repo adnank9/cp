@@ -52,7 +52,9 @@ export default function TableComponent() {
   useEffect(() => {
     async function fetchUserData() {
       try {
-        const response = await fetch("http://localhost:8080/user/getUsers");
+        const response = await fetch(
+          "https://cps-amber.vercel.app/user/getUsers"
+        );
         if (response.ok) {
           const data = await response.json();
           setRows(data);
@@ -72,7 +74,9 @@ export default function TableComponent() {
 
   const fetchUserData = async () => {
     try {
-      const response = await fetch("http://localhost:8080/user/getUsers");
+      const response = await fetch(
+        "https://cps-amber.vercel.app/user/getUsers"
+      );
       console.log(response);
       if (response.ok) {
         const data = await response.json();
@@ -88,7 +92,7 @@ export default function TableComponent() {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/user/deleteUser/${id}`,
+        `https://cps-amber.vercel.app/user/deleteUser/${id}`,
         {
           method: "DELETE",
         }
@@ -108,12 +112,12 @@ export default function TableComponent() {
 
   const handleSave = async (id) => {
     try {
-      let url = "http://localhost:8080/user/saveUser";
+      let url = "https://cps-amber.vercel.app/user/saveUser";
       let method = "POST";
       console.log(id);
 
       if (userData.id) {
-        url = `http://localhost:8080/user/updateUser/${id}`;
+        url = `https://cps-amber.vercel.app/user/updateUser/${id}`;
         method = "PUT";
         console.log("Edited", id);
       }
